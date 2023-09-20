@@ -34,7 +34,7 @@ git checkout $COMMIT # checkout on the right commit
 cd .. # go folder up
 
 rm -rf tmp/.git # remove .git 
-rm -rf $$SUBMODULE_PATH || true
+rm -rf $SUBMODULE_PATH || true
 mkdir $SUBMODULE_PATH
 
 mv tmp/* $SUBMODULE_PATH/ # move the submodule to the submodule path
