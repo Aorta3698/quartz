@@ -32,8 +32,9 @@ git checkout $COMMIT # checkout on the right commit
 
 # move the submodule from tmp to the submodule path
 cd .. # go folder up
-
 rm -rf tmp/.git # remove .git 
+
+# make sure that /content exists and is empty
 rm -rf $SUBMODULE_PATH || true
 mkdir $SUBMODULE_PATH
 
