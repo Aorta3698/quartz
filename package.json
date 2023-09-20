@@ -12,7 +12,7 @@
     "url": "https://github.com/jackyzha0/quartz.git"
   },
   "scripts": {
-    "vercel-install": "./vercel-submodule-workaround.sh && yarn --ignore-scripts --production=false",
+    "vercel-install": "./vercel-submodule-workaround.sh && npm i",
     "docs": "npx quartz build --serve -d docs",
     "check": "tsc --noEmit && npx prettier . --check",
     "format": "npx prettier . --write",
