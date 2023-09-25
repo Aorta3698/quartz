@@ -1,0 +1,9 @@
+version: 2
+
+updates:
+  - package-ecosystem: gitsubmodule
+    schedule:
+        interval: "daily"
+    directory: /
+    tokens: ${{secrets.NOTES_TOKEN}}
+
