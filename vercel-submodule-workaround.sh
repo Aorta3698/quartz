@@ -42,3 +42,6 @@ mv tmp/* $SUBMODULE_PATH/ # move the submodule to the submodule path
 
 # clean up
 rm -rf tmp # remove the tmp folder
+
+## https://github.com/beeinger/vercel-private-submodule/tree/master
+## https://github.com/orgs/vercel/discussions/44
