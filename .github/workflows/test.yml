@@ -7,7 +7,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          token: ${{ secrets.PAT }}
+          token: ${{ secrets.NOTES_TOKEN }}
           submodules: recursive
       - name: Update module
         run: |
