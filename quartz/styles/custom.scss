@@ -2,7 +2,7 @@
 
 @use "./variables.scss" as *;
 
-blockquote[data-callout="hidden"] {
+blockquote[data-callout="bug"] {
   display: none;
 }
 
