@@ -54,12 +54,16 @@ export const CrawlLinks: QuartzTransformerPlugin<Partial<Options> | undefined> =
                 node.properties.className ??= []
                 node.properties.className.push(isAbsoluteUrl(dest) ? "external" : "internal")
 
-                if (opts.openLinksInNewTab) {
-                  node.properties.target = "_blank"
-                }
+                // if (opts.openLinksInNewTab) {
+                //   node.properties.target = "_blank"
+                // }
 
                 // don't process external links or intra-document anchors
                 const isInternal = !(isAbsoluteUrl(dest) || dest.startsWith("#"))
+                const isPDF = dest.endsWith("pdf")
+                if (isPDF || opts.openLinksInNewTab && !isInternal){
+                  node.properties.target = "_blank"
+                }
                 if (isInternal) {
                   dest = node.properties.href = transformLink(
                     file.data.slug!,
