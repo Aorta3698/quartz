@@ -60,7 +60,7 @@ export const CrawlLinks: QuartzTransformerPlugin<Partial<Options> | undefined> =
 
                 // don't process external links or intra-document anchors
                 const isInternal = !(isAbsoluteUrl(dest) || dest.startsWith("#"))
-                const isPDF = dest.endsWith("pdf")
+                const isPDF = dest.endsWith(".pdf")
                 if (isPDF || opts.openLinksInNewTab && !isInternal){
                   node.properties.target = "_blank"
                 }
