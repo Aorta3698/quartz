@@ -9,7 +9,8 @@ blockquote[data-callout="bug"] {
 
 
 /** Make code blocks wrap in preview mode too */
-code {
+/** https://stackoverflow.com/questions/1533444/css-selector-to-match-an-element-without-attribute-x */
+code:not([data-language]) {
   word-wrap: break-word !important;
   white-space: pre-wrap !important;
 }
