@@ -71,7 +71,7 @@ function generateRSSFeed(cfg: GlobalConfiguration, idx: ContentIndex, limit?: nu
       <description>${!!limit ? `Last ${limit} notes` : "Recent notes"} on ${escapeHTML(
         cfg.pageTitle,
       )}</description>
-      <generator>Quartz -- quartz.jzhao.xyz</generator>
+      <generator>notes.zoewinters.me</generator>
       ${items}
     </channel>
   </rss>`
@@ -85,7 +85,8 @@ export const ContentIndex: QuartzEmitterPlugin<Partial<Options>> = (opts) => {
       const cfg = ctx.cfg.configuration
       const emitted: FilePath[] = []
       const linkIndex: ContentIndex = new Map()
-      for (const [tree, file] of content) {
+      const listedContent = content.filter((c) => !c[1].data?.frontmatter?.unlisted)
+      for (const [tree, file] of listedContent) {
         const slug = file.data.slug!
         const date = getDate(ctx.cfg.configuration, file.data) ?? new Date()
         if (opts?.includeEmptyFiles || (file.data.text && file.data.text !== "")) {

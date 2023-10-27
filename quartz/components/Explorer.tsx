@@ -44,7 +44,9 @@ export default ((userOpts?: Partial<Options>) => {
     if (!fileTree) {
       // Construct tree from allFiles
       fileTree = new FileNode("")
-      allFiles.forEach((file) => fileTree.add(file, 1))
+      allFiles
+        .filter((file) => !file.frontmatter?.unlisted)
+        .forEach((file) => fileTree.add(file, 1))
 
       /**
        * Keys of this object must match corresponding function name of `FileNode`,

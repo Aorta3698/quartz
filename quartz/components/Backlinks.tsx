@@ -4,7 +4,9 @@ import { resolveRelative, simplifySlug } from "../util/path"
 
 function Backlinks({ fileData, allFiles, displayClass }: QuartzComponentProps) {
   const slug = simplifySlug(fileData.slug!)
-  const backlinkFiles = allFiles.filter((file) => file.links?.includes(slug))
+  const backlinkFiles = allFiles.filter(
+    (file) => file.links?.includes(slug) && !file.frontmatter?.unlisted,
+  )
   return (
     <div class={`backlinks ${displayClass ?? ""}`}>
       <h3>Backlinks</h3>
